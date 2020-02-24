@@ -1,0 +1,66 @@
+.listroom {
+	position: relative;
+	background-color: #060d1a;
+	background-image: url('/assets/img/room.png');
+	background-size: cover;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	color: #FFF;
+	overflow: hidden;
+}
+.listroom .detail {
+	padding: 14px;
+}
+.listroom .detail h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 600;
+}
+.listroom .detail .type {
+	font-size: 11px;
+}
+.listroom .awards {
+	padding-top: 20px;
+}
+.listroom .awards .award {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+.listroom .awards .award .key {
+	font-size: 9px;
+	color: rgba(255,255,255,0.5);
+}
+.listroom .awards .award .val {
+	font-size: 14px;
+	font-weight: 600;
+	color: #FFF;
+	line-height: 26px;
+	padding: 4px 0;
+	background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.14) 100%);
+	background: -o-linear-gradient(bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.14) 100%);
+	background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.14) 100%);
+}
+.listroom .prize {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 5px;
+	text-align: center;
+	border-radius: 0 .25rem 0 .25rem!important;
+}
+.listroom .prize .money {
+	font-size: 15px;
+	font-weight: 600;
+}
+.listroom .prize .buybt {
+	font-size: 11px;
+	color: #FFF;
+	line-height: 20px;
+	padding: 0 8px;
+	background: rgba(0,0,0,0.2);
+}
+.listroom:hover .prize .buybt {
+	background: rgba(0,0,0,0.5);
+}

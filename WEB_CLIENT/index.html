@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@siteDesc" />
+    <title>@@siteTitle</title>
+    <link rel="icon" type="image/png" href="@@siteIcon" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="assets/css/room-cards.css">
+    <style>
+        .bg-purpledark {
+            background-color: #185c58;
+        }
+        
+        .bordercolor {
+            border-color: rgb(255, 255, 255)!important;
+        }
+    </style>
+</head>
+
+<body class="bg-purpledark">
+
+    <div class="container p-2 m-auto">
+        <style>
+            footer,
+            .navbar {
+                background: #0c191fc9;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm rounded-top">
+            <a class="navbar-brand" style="cursor:pointer display: block;" href="/">
+                <img src="@@siteLogo" width="30" height="30" class="d-inline-block align-top mr-2" alt="">euuTombala</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <span class="navbar-text d-md-block d-sm-none">Hızlı ve Yüksek Kazançın Adresi</span>
+                <ul class="navbar-nav ml-auto" id="unsigned">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary text-left mb-1 mb-lg-0 w-100"  data-toggle="modal" data-target="#userLoginModal">
+                            <i class="fas fa-sign-in-alt mr-1"></i>Giriş Yap
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-danger text-left w-100 ml-0 ml-md-2"  data-toggle="modal" data-target="#userRegisterModal">
+                            <i class="fas fa-user-plus mr-1"></i>Kayıt Ol
+                        </button>
+                    </li>
+                </ul>
+                <div class="form-inline" id="signed">
+                </div>
+            </div>
+        </nav>
+        <div>
+            <main role="main" class="text-center">
+                <div class="text-left bg-x">
+                    <div class="p-0 border-top bordercolor">
+
+                    </div>
+
+                </div>
+                <div style="background-color: rgba(107, 48, 48, 0.781);" class="pt-3 pr-3 pl-3 border-top bordercolor">
+                    <div id="rooms" class="row">
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="rounded-bottom">
+            <div class="container small d-flex flex-column text-center flex-md-row justify-content-between align-items-center">
+                <div class="py-2"><strong class="text-white-50">euu TOMBALA &copy; 2019</strong></div>
+                <div class="gplay p-2 mt-2 mt-md-0 rounded">
+                    <a href="github.com/emreuyguc" target="_blank">
+                        <span class="bns">made by euu</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+            
+
+    <div class="modal fade" id="roomCreateModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeni Oda Kuruluyor</h5>
+                    <p>
+                        Oda kurulum ücreti olarak sizden , belirlediğiniz kart ücretinin 1 adet miktarı kadar kesinti yapılır.
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Oda Adı :</span>
+                        </div>
+                        <input id="roomName" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Kart Ücreti : </span>
+                        </div>
+                        <input id="cardPrice" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Oda Komisyonu : </span>
+                        </div>
+                            <select class="form-control" id="ownerDividend">
+                              <option value="5">5 %</option>
+                              <option value="10">10 %</option>
+                              <option value="15">15 %</option>
+                              <option value="20">20 %</option>
+                            </select>
+                         </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" onclick="roomCreate($('#roomName').val() , $('#cardPrice').val() , $('#ownerDividend').val())">Kur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="userLoginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Giriş Yapılıyor</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Kullanıcı Adı :</span>
+                        </div>
+                        <input id="login-username" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Şifre :</span>
+                        </div>
+                        <input id="login-password" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" onclick="userLogin($('#login-username').val() , $('#login-password').val())">Giriş</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="userRegisterModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeni Kayıt</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Kullanıcı Adı :</span>
+                        </div>
+                        <input id="reg-username" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Şifre :</span>
+                        </div>
+                        <input id="reg-password" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Eposta :</span>
+                        </div>
+                        <input id="reg-email" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" onclick="userRegister($('#reg-username').val() , $('#reg-password').val(), $('#reg-email').val())">Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/socket.io.js"></script>
+    <script src="assets/js/konva.min.js"></script>
+    <script src="app/main.js"></script>
+
+</body>
+</html>

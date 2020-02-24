@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container py-5">
+            <div class="row text-center text-black">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4">Tombala</h1>
+                    <p class="lead mb-0">Client Side : Javascript ( Jquery )</p>
+                    <p class="lead mb-0">Server Side : NodeJs ( SocketIo + Redis )</p>
+                    <p class="lead">Author
+                        <a href="emreuyguc.com" class="text-black">
+                            <u>EUU</u>
+                        </a>
+                    </p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createRoomDialog">YENİ ODA</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="rooms" class="row text-center">
+        </div>
+    </div>
+    
+    <div class="modal fade" id="createRoomDialog" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeni oda</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Oda Adı :</span>
+                        </div>
+                        <input id="roomName" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Oda Sahibi :</span>
+                        </div>
+                        <input id="roomAdminNick" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" id="createRoomBtn">Kur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="joinRoomDialog" tabindex="-1" role="dialog" aria-hidden="true">
+    </div>
+
+  <script src="assets/js/jquery-3.4.1.slim.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/socket.io.js"></script>
+
+  <script src="app/rooms.js"></script>
+</body>
+</html>
